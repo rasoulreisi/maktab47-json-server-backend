@@ -4,9 +4,11 @@
   "description": "Backend project for a frontend exercise for Maktab47 bootcamp, with json-server and file upload",
   "main": "index.js",
   "scripts": {
+    "backend": "node server"
   },
   "author": "Babak Khorrami",
   "license": "MIT",
   "devDependencies": {
+    "json-server": "^0.16.3",
   }
 }
