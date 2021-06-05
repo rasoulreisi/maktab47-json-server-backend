@@ -10,13 +10,14 @@ const upload = multer({ dest: 'uploads/' })
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares)
 
-// Add custom routes before JSON Server router
+// general upload API (for test)
 server.post('/upload', upload.single('image'), function (req, res, next) {
   // req.file is the `image` file
   // req.body will hold the text fields, if there were any
   res.json(req.file)
 })
 
+// list all files API (for test)
 server.get('/files', (req, res, next) => {
   fs.readdir('./uploads/', (err, files) => {
     if (err) return next(err)
@@ -24,6 +25,7 @@ server.get('/files', (req, res, next) => {
   })
 })
 
+// download (preview) a file API
 server.get('/files/:file_id', (req, res, next) => {
   const { file_id } = req.params
   res.set('Content-Type', 'image/jpeg')
