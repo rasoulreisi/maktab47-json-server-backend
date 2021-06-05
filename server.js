@@ -84,5 +84,5 @@ server.use((req, res, next) => {
 server.use(router)
 
 server.listen(3000, () => {
-  console.log('JSON Server is running')
+  console.log('Customized JSON-Server is running at http://localhost:3000/')
 })
