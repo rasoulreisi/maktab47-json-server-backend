@@ -9,7 +9,7 @@
 			"name": "Test Upload",
 			"item": [
 				{
-					"name": "Upload",
+					"name": "Upload Only",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -51,30 +51,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Download a File",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{SERVER}}/files/:file_id",
-							"host": [
-								"{{SERVER}}"
-							],
-							"path": [
-								"files",
-								":file_id"
-							],
-							"variable": [
-								{
-									"key": "file_id",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -82,7 +58,7 @@
 			"name": "Products",
 			"item": [
 				{
-					"name": "Create",
+					"name": "Create [JSON]",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -94,6 +70,48 @@
 									"language": "json"
 								}
 							}
+						},
+						"url": {
+							"raw": "{{SERVER}}/products",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload & Create [FormData]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "surface pro laptop",
+									"type": "text"
+								},
+								{
+									"key": "brand",
+									"value": "microsoft",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Babak/Desktop/Desktop/thumbnail.jpg"
+								},
+								{
+									"key": "price",
+									"value": "1500",
+									"type": "text"
+								}
+							]
 						},
 						"url": {
 							"raw": "{{SERVER}}/products",
@@ -125,6 +143,30 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Download a File",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER}}/files/:file_id",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"files",
+						":file_id"
+					],
+					"variable": [
+						{
+							"key": "file_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
